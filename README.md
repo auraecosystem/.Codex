@@ -68,7 +68,7 @@ Help us improve by filing issues or submitting PRs (see the section below for ho
 
 Install globally with your preferred package manager:
 
-```shell
+```ps1
 npm install -g @openai/codex  # Alternatively: `brew install codex`
 Package Manager,Command
 Homebrew (macOS/Linux),brew install codex
