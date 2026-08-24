@@ -1,0 +1,70 @@
+version = "2.0"
+
+[project]
+name = "codex-cli-auth"
+description = "Production-grade Codex CLI authentication service."
+license = "MIT"
+
+[model]
+default = "gpt-5"
+reasoning = "high"
+temperature = 0.1
+max_tokens = 65536
+
+[workspace]
+root = "."
+output = "generated"
+docs = "docs"
+tests = "tests"
+
+[typescript]
+strict = true
+module = "NodeNext"
+target = "ES2023"
+
+[code]
+format = true
+lint = true
+comments = true
+safe_refactors = true
+
+[security]
+scan_dependencies = true
+scan_secrets = true
+scan_vulnerabilities = true
+jwt_validation = true
+pkce_required = true
+
+[oauth]
+issuer = "https://auth.openai.com"
+flow = "authorization_code"
+pkce = "S256"
+redirect_port = 1455
+save_tokens = true
+refresh_tokens = true
+
+[storage]
+auth_directory = "~/.codex"
+auth_file = "~/.codex/auth.json"
+permissions = "0600"
+
+[testing]
+framework = "vitest"
+coverage = true
+run_tests = true
+
+[logging]
+level = "info"
+timestamps = true
+colors = true
+
+[documentation]
+generate_readme = true
+generate_api_docs = true
+generate_examples = true
+
+[ai]
+architecture_notes = true
+security_review = true
+explain_changes = true
+refactor_suggestions = true
