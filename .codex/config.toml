@@ -1,0 +1,70 @@
+# ==========================================
+# Codex Configuration
+# ==========================================
+
+version = "1.0"
+
+[project]
+name = "Aura Ecosystem"
+organization = "QUBUHUB"
+language = "typescript"
+license = "MIT"
+
+[model]
+default = "gpt-5"
+reasoning = "high"
+temperature = 0.2
+max_tokens = 32768
+
+[workspace]
+root = "."
+docs = "docs"
+tests = "tests"
+output = "generated"
+
+[code]
+format = true
+lint = true
+comments = true
+strict_types = true
+safe_refactors = true
+
+[languages]
+typescript = true
+javascript = true
+python = true
+rust = true
+go = true
+swift = true
+solidity = true
+sql = true
+bash = true
+
+[testing]
+run_tests = true
+framework = "auto"
+coverage = true
+
+[security]
+scan_dependencies = true
+scan_secrets = true
+scan_vulnerabilities = true
+
+[git]
+commit_style = "conventional"
+auto_branch = false
+auto_stage = false
+
+[documentation]
+generate_readme = true
+generate_api_docs = true
+generate_examples = true
+
+[performance]
+optimize = true
+bundle_analysis = true
+
+[ai]
+architecture_notes = true
+refactor_suggestions = true
+explain_changes = true
