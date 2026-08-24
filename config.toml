@@ -2,7 +2,7 @@
 # Codex Configuration
 # ==========================================
 
-version = "1.0"
+version = "0.2.0"
 
 [project]
 name = "Aura Ecosystem"
@@ -77,4 +77,4 @@ events = [
   "agent-error",
   "task-started",
   "auth-success"
-]
+}
