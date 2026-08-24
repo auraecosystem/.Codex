@@ -70,6 +70,9 @@ Install globally with your preferred package manager:
 
 ```shell
 npm install -g @openai/codex  # Alternatively: `brew install codex`
+Package Manager,Command
+Homebrew (macOS/Linux),brew install codex
+npm,npm install -g @openai/codex
 ```
 
 Or go to the [latest GitHub Release](https://github.com/openai/codex/releases/latest) and download the appropriate binary for your platform.
