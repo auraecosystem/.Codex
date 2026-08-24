@@ -1,0 +1,187 @@
+# ==========================================================
+# Codex Global Configuration
+# Aura Ecosystem / QUBUHUB
+# Supports multiple AI providers and environments.
+# ==========================================================
+
+model = "gpt-5"
+profile = "gpt5"
+
+approval_policy = "unless-allow-listed"
+disable_response_storage = false
+
+# ----------------------------------------------------------
+# MODEL PROVIDERS
+# ----------------------------------------------------------
+
+[model_providers.openai]
+name = "OpenAI Responses API"
+base_url = "https://api.openai.com/v1"
+env_key = "OPENAI_API_KEY"
+wire_api = "responses"
+
+[model_providers.openai-chat]
+name = "OpenAI Chat Completions"
+base_url = "https://api.openai.com/v1"
+env_key = "OPENAI_API_KEY"
+wire_api = "chat"
+
+[model_providers.anthropic]
+name = "Anthropic Claude"
+base_url = "https://api.anthropic.com/v1"
+env_key = "ANTHROPIC_API_KEY"
+wire_api = "messages"
+
+[model_providers.google]
+name = "Google Gemini"
+base_url = "https://generativelanguage.googleapis.com/v1beta/openai"
+env_key = "GEMINI_API_KEY"
+wire_api = "chat"
+
+[model_providers.ollama]
+name = "Ollama Local"
+base_url = "http://localhost:11434/v1"
+env_key = "OLLAMA_API_KEY"
+wire_api = "chat"
+
+[model_providers.groq]
+name = "Groq"
+base_url = "https://api.groq.com/openai/v1"
+env_key = "GROQ_API_KEY"
+wire_api = "chat"
+
+# ----------------------------------------------------------
+# OPENAI PROFILES
+# ----------------------------------------------------------
+
+[profiles.gpt5]
+model = "gpt-5"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "high"
+model_reasoning_summary = "detailed"
+
+[profiles.gpt5mini]
+model = "gpt-5-mini"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "medium"
+model_reasoning_summary = "auto"
+
+[profiles.gpt5nano]
+model = "gpt-5-nano"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "low"
+model_reasoning_summary = "auto"
+
+[profiles.o3]
+model = "o3"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "high"
+model_reasoning_summary = "detailed"
+
+[profiles.o4mini]
+model = "o4-mini"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "medium"
+
+# ----------------------------------------------------------
+# LEGACY OPENAI
+# ----------------------------------------------------------
+
+[profiles.gpt35]
+model = "gpt-3.5-turbo"
+model_provider = "openai-chat"
+
+[profiles.gpt4]
+model = "gpt-4"
+model_provider = "openai-chat"
+
+# ----------------------------------------------------------
+# CLAUDE
+# ----------------------------------------------------------
+
+[profiles.claude]
+model = "claude-sonnet-4"
+model_provider = "anthropic"
+approval_policy = "never"
+
+[profiles.claude-opus]
+model = "claude-opus-4"
+model_provider = "anthropic"
+approval_policy = "never"
+
+# ----------------------------------------------------------
+# GEMINI
+# ----------------------------------------------------------
+
+[profiles.gemini-pro]
+model = "gemini-2.5-pro"
+model_provider = "google"
+
+[profiles.gemini-flash]
+model = "gemini-2.5-flash"
+model_provider = "google"
+
+# ----------------------------------------------------------
+# GROQ
+# ----------------------------------------------------------
+
+[profiles.groq-fast]
+model = "llama-3.3-70b-versatile"
+model_provider = "groq"
+
+# ----------------------------------------------------------
+# LOCAL OLLAMA
+# ----------------------------------------------------------
+
+[profiles.llama]
+model = "llama3.2:latest"
+model_provider = "ollama"
+
+[profiles.qwen]
+model = "qwen2.5-coder:32b"
+model_provider = "ollama"
+
+[profiles.deepseek]
+model = "deepseek-r1:70b"
+model_provider = "ollama"
+
+[profiles.mistral]
+model = "mistral-large"
+model_provider = "ollama"
+
+# ----------------------------------------------------------
+# DEVELOPMENT PROFILES
+# ----------------------------------------------------------
+
+[profiles.dev]
+model = "gpt-5-mini"
+model_provider = "openai"
+approval_policy = "on-request"
+model_reasoning_effort = "medium"
+disable_response_storage = false
+
+[profiles.production]
+model = "gpt-5"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "high"
+disable_response_storage = false
+
+[profiles.private]
+model = "gpt-5"
+model_provider = "openai"
+approval_policy = "on-failure"
+disable_response_storage = true
+
+[profiles.audit]
+model = "o3"
+model_provider = "openai"
+approval_policy = "never"
+model_reasoning_effort = "high"
+model_reasoning_summary = "detailed"
+disable_response_storage = true
