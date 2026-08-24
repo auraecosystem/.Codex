@@ -68,3 +68,13 @@ bundle_analysis = true
 architecture_notes = true
 refactor_suggestions = true
 explain_changes = true
+
+[notifications]
+enabled = true
+script = "~/.codex/scripts/notify.py"
+events = [
+  "agent-turn-complete",
+  "agent-error",
+  "task-started",
+  "auth-success"
+]
