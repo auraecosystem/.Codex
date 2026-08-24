@@ -1,0 +1,30 @@
+name: Codex Automated CI Verification
+
+on:
+  pull_request:
+    branches: [ main, dev ]
+
+jobs:
+  codex-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - name: Install Project Dependencies
+        run: npm ci
+
+      - name: Install Codex CLI
+        run: npm install -g @openai/codex
+
+      - name: Execute Codex Automated Testing & Lint Check
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          codex exec --full-auto "Run 'npm run lint' and 'npm test'. If any errors are found, fix them directly in the workspace while keeping existing logic intact."
