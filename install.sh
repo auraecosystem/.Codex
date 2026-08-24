@@ -108,3 +108,8 @@ main() {
 }
 
 main "$@"
+$ brew install terminal-notifier
+
+mkdir -p ~/.codex/scripts
+cp notify.py ~/.codex/scripts/
+chmod +x ~/.codex/scripts/notify.py
