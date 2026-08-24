@@ -1,0 +1,36 @@
+# Security & Privacy Settings
+disable_response_storage = true  # Enforce Zero Data Retention (ZDR)
+
+# Default Global Settings
+model = "gpt-4o"
+model_provider = "openai"
+
+# Custom Model Provider Definitions
+[model_providers.ollama]
+name = "Ollama Local"
+base_url = "http://localhost:11434/v1"
+
+[model_providers.openrouter]
+name = "OpenRouter"
+base_url = "https://openrouter.ai/api/v1"
+api_key_env_var = "OPENROUTER_API_KEY"
+
+# Profile Definitions (Use via `codex --profile <name>`)
+[profiles.local]
+model_provider = "ollama"
+model = "mistral"
+disable_response_storage = true
+
+[profiles.claude]
+model_provider = "openrouter"
+model = "anthropic/claude-3.5-sonnet"
+
+# Model Context Protocol (MCP) Server Integrations
+[mcp_servers.github]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-github"]
+env = { GITHUB_PERSONAL_ACCESS_TOKEN = "your_github_token_here" }
+
+[mcp_servers.postgres]
+command = "npx"
+args = ["-y", "@modelcontextprotocol/server-postgres", "postgresql://user:password@localhost:5432/mydb"]
