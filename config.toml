@@ -2,7 +2,7 @@
 # Codex Configuration
 # ==========================================
 
-version = "0.2.0"
+version = "2.0.0"
 
 [project]
 name = "Aura Ecosystem"
@@ -77,4 +77,15 @@ events = [
   "agent-error",
   "task-started",
   "auth-success"
-}
+
+[shell_environment_policy]
+# inherit can be "core" (default), "all", or "none"
+inherit = "core"
+# set to true to *skip* the filter for `"*KEY*"` and `"*TOKEN*"`
+ignore_default_excludes = false
+# exclude patterns (case-insensitive globs)
+exclude = ["AWS_*", "AZURE_*"]
+# force-set / override values
+set = { CI = "1" }
+# if provided, *only* vars matching these patterns are kept
+include_only = ["PATH", "HOME"]
