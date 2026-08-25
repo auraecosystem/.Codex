@@ -1,3 +1,6 @@
+$ curl https://formulae.brew.sh/api/formula.json
+$ curl https://formulae.brew.sh/api/cask.json
+
 # Default profile
 codex
 
